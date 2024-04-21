@@ -1,0 +1,60 @@
+
+from Crypto.Cipher import AES
+from Crypto.Random import get_random_bytes
+import os
+
+class FileEncryptor:
+    def __init__(self, key):
+        self.key = key
+
+    def encrypt_file(self, input_file, output_file):
+        chunk_size = 64 * 1024  # 64 KB
+        init_vector = get_random_bytes(16)
+
+        cipher = AES.new(self.key, AES.MODE_CBC, init_vector)
+
+        with open(input_file, 'rb') as infile:
+            with open(output_file, 'wb') as outfile:
+                outfile.write(init_vector)
+
+                while True:
+                    chunk = infile.read(chunk_size)
+                    if len(chunk) == 0:
+                        break
+                    elif len(chunk) % 16 != 0:
+                        chunk += b' ' * (16 - len(chunk) % 16)
+
+                    encrypted_chunk = cipher.encrypt(chunk)
+                    outfile.write(encrypted_chunk)
+
+    def decrypt_file(self, input_file, output_file):
+        chunk_size = 64 * 1024  # 64 KB
+
+        with open(input_file, 'rb') as infile:
+            init_vector = infile.read(16)
+            cipher = AES.new(self.key, AES.MODE_CBC, init_vector)
+
+            with open(output_file, 'wb') as outfile:
+                while True:
+                    chunk = infile.read(chunk_size)
+                    if len(chunk) == 0:
+                        break
+
+                    decrypted_chunk = cipher.decrypt(chunk)
+                    outfile.write(decrypted_chunk.rstrip(b' '))
+
+
+# Example usage:
+key = b'ThisIsA32ByteSecretKey1234567890' 
+input_file = 'plaintext.txt'
+encrypted_file = 'encrypted_file.bin'
+decrypted_file = 'decrypted_file.txt'
+
+encryptor = FileEncryptor(key)
+encryptor.encrypt_file(input_file, encrypted_file)
+print("File encrypted successfully.")
+
+decryptor = FileEncryptor(key)
+decryptor.decrypt_file(encrypted_file, decrypted_file)
+print("File decrypted successfully.")
+

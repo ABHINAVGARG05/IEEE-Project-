@@ -1,0 +1,57 @@
+****I found AES(Advanced Encryption Standard) is best encryption technique for file encryption due to its balance of security, performance, and broad support. It supports a key sizes of 128,192 and 256 bits. The plain text of 128 bits iis converted into ciphertext of 128 bits by going through various rounds. Out of which N-1 rounds has 4 Transformations and last round has 3 transformations. 
+
+Data encryption is broadly categorized in 2 types:
+1.Symmetric 
+2. Asymmetric
+
+**Symmetric->
+When using symmetrical encryption methods, a single secret key is used to encrypt plaintext and decrypt ciphertext. Both the sender and receiver have private access to the key, which can only be used by authorized recipients. Symmetric encryption is also known as private key cryptography. 
+
+Some common symmetric encryption algorithms include: 
+
+***Advanced Encryption Standard (AES)->
+The Advanced Encryption Standard is a symmetric encryption algorithm that is the most frequently used method of data encryption globally. Often referred to as the gold standard for data encryption, AES is used by many government bodies worldwide, including in the U.S.
+
+AES encrypts 128-bit data blocks at a time and can be used for:
+
+File and application encryption
+Wifi security
+VPNs
+SSL/TLS protocols
+
+
+***Data Encryption Standard (DES)->
+DES is a block cipher that operates on data blocks of 64 bits in size. DES uses a 64-bit key 8 × 8 including 1 bit for parity, so the actual key is 56 bits. DES, in common with other block ciphers, is based around a structure called a Feistel Lattice so it is useful to describe how this works.
+
+
+
+***Triple DES (TDES) ->
+The Triple Data Encryption Standard, sometimes shortened to Triple DES or 3DES, is a symmetric encryption method that uses a 56-bit key to encrypt data blocks. It is a more advanced, more secure version of the Data Encryption Standard (DES) algorithm. As its name indicates, TDES applies DES to each block of data three times.
+
+Utilized by applications like Firefox and Microsoft Office, TDES encrypts things like:
+
+ATM pins
+UNIX passwords
+Other payment systems
+
+
+***Twofish ->
+The next generation version of Blowfish is Twofish, a symmetric encryption technique that encrypts 128-bit data blocks. Twofish utilizes a more complicated key schedule, encrypting data in 16 rounds no matter the size of the encryption key. It’s also publicly available like its predecessor Blowfish, but it’s a lot faster and can be applied to both hardware and software.
+
+Twofish is most frequently used for file and folder encryption.
+
+**Asymmetric -> 
+This method of encryption is known as public key cryptography. In asymmetric encryption, two keys are used: a public key and a private key. Separate keys are used for both the encryption and decryption processes:
+
+The public key, as the name suggests, is either publicly available or shared with authorized recipients.
+The corresponding private key is required to access data encrypted by the public key. The same public key will not work to decrypt the data in this technique.
+Asymmetric encryption offers another level of security to the data which makes online transfers safer. Common asymmetric encryption methods include Rivest Shamir Adleman (RSA) ->
+The Rivest Shamir Adleman algorithm is an asymmetric form of encryption. Used to encrypt data from one point of communication to another (across the internet), it depends on the prime factorization of two large randomized prime numbers. This results in the creation of another large prime number — the message can be only decoded by someone with knowledge of these numbers.
+
+
+Elliptic Curve Cryptography (ECC) ->
+The ECC encryption algorithm is a relatively new asymmetric encryption method. It uses a curve diagram to represent points that solve a mathematical equation, making it highly complex. The shorter keys make it faster and stronger than RSA encryption. ECC can be used for:
+
+Web communications security (SSL/TLS protocols)
+One-way email encryption
+Digital signatures in cryptocurrencies like Bitcoin or NFTs.
